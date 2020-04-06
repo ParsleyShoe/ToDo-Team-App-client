@@ -16,9 +16,9 @@
                 </td>
         </tr>
         <tr>
-            <th>Password
+            <th>Password:</th>
                 <td>
-                    <input [(ngModel)]="user.password" type="text" size="20" maxlength="30">
+                    <input [(ngModel)]="user.password" type="text" size="20" maxlength="64">
                 </td>
         </tr>
         <tr>
@@ -37,6 +37,7 @@
 
         <tr>
             <td colspan="2">
+                <button (click)="delete()" class="btn btn-primary">Delete</button>
                 <button (click)="save()" class="btn btn-primary">Save</button>
             </td>
         </tr>
