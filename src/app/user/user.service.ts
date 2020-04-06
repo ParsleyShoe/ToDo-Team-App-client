@@ -4,7 +4,6 @@ import { User } from './user.class';
 import { Observable } from 'rxjs';
 
 const url:string = "http://localhost:5000/api/users" // use if running from CLI
-const url2: string="http://localhost:55555/api/users" // use if running from IIS in Visual Studio
 
 @Injectable({
   providedIn: 'root'
