@@ -1,5 +1,6 @@
 <div>
     <a routerLink="" title="ToDo Home Page">Home</a>
     <a routerLink="/login">Log In</a>
+    <a *ngIf="systemsvc.user.id != 0" routerLink="/my-todos/{{systemsvc.user.id}}">My ToDos</a>
     <a routerLink="">Another Link</a>
 </div>

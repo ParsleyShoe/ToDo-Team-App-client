@@ -1,21 +1,21 @@
 <div class = "component">
-    <h1>To-do List Login</h1>
+    <h1>ToDo Login</h1>
     <table>
         <tr>
             <th>Username:</th>
             <td>
-                <input [(ngModel)] = "user.username" type="text" size = "30">
+                <input [(ngModel)]="username" type="text" maxlength="30">
             </td>
         </tr>
         <tr>
             <th>Password:</th>
             <td>
-                <input [(ngModel)] = "user.password" type="password" size = "30">
+                <input [(ngModel)]="password" type="password" maxlength="64">
             </td>
         </tr>
         <td colspan="2">
-            <button (click)="login(user.username, user.password)" class="btn btn-primary">Login</button>
+            <button (click)="login()" class="btn btn-primary">Login</button>
         </td>
-        <span>{{message}}</span>        
+        <span>{{message}}</span>
     </table>
 </div>
