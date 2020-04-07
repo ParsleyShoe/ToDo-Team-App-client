@@ -27,7 +27,7 @@
         <tr>
             <th> Assigned To: </th>
             <td>
-                <select [(ngModel)]="todo.assignedUserId" >
+                <select [(ngModel)]="todo.assigneduserId" >
                  <option *ngFor="let a of users" value="{{+a.id}}">{{a.name}}</option>   
                 </select>
             </td>
@@ -35,19 +35,13 @@
         <tr>
             <th> Due Date: </th>
             <td>
-                <input [(ngModel)]="todo.dueDate" type="date">
+                <input [(ngModel)]="todo.duedate" type="date">
             </td>
         </tr>
         <tr>
             <th> Status: </th>
             <td>
                 <input [(ngModel)]="todo.status" type="text">
-            </td>
-        </tr>
-        <tr>
-            <th> ID: </th>
-            <td>
-                <input [(ngModel)]="todo.id" type="number disabled">
             </td>
         </tr>
     </table>

@@ -1,1 +1,26 @@
-<p>todo-list-all works!</p>
+<app-menu></app-menu>
+<div>
+    <h4>All ToDo Items</h4>
+    <table>
+        <tr>
+           <th>ID:</th> 
+           <th>Description:</th> 
+           <th>Done:</th> 
+           <th>Category:</th> 
+           <th>Created By:</th> 
+           <th>Assigned To:</th> 
+           <th>Due Date:</th> 
+           <th>Status:</th> 
+        </tr>
+        <tr *ngFor="let t of todos | sort: 'dueDate'">
+            <th>{{t.id}}</th>
+            <th>{{t.description}}</th>
+            <th>{{t.isDone ? "Yes" : "No" }}</th>
+            <th>{{t.category}}</th>
+            <th>{{t.user.name}}</th>
+            <th>{{t.assigned.name}}</th> <!--Need a property to store whole user in class-->
+            <th>{{t.duedate}}</th>
+            <th>{{t.status}}</th>
+        </tr>
+    </table>
+</div>
