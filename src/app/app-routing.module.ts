@@ -13,6 +13,9 @@ import { TodoDetailComponent } from './todo/todo-detail/todo-detail.component';
 import { TodoEditComponent } from './todo/todo-edit/todo-edit.component';
 import { TodoListAllComponent } from './todo/todo-list-all/todo-list-all.component';
 
+import { TodoListUserComponent } from './todo/todo-list-user/todo-list-user.component';
+
+
 
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
@@ -21,13 +24,18 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
 
   { path: "users/create", component: UserCreateComponent },
-  { path: "users/edit", component: UserEditComponent },
+  { path: "users/edit/:id", component: UserEditComponent },
 
-  { path: "todo/assign", component: TodoAssignComponent },
+  { path: "todo/assign/:id", component: TodoAssignComponent },
   { path: "todo/create", component: TodoCreateComponent },
+
   { path: "todo/detail", component: TodoDetailComponent },
   { path: "todo/edit", component: TodoEditComponent },
   { path: "todo/listall", component: TodoListAllComponent },
+  { path: "todo/detail/:id", component: TodoDetailComponent },
+  { path: "todo/edit/:id", component: TodoEditComponent },
+  { path: "all-todos", component: TodoListAllComponent },
+  { path: "my-todos/:userid", component: TodoListUserComponent },
 
   { path: "**", component: HomeComponent }
 ];

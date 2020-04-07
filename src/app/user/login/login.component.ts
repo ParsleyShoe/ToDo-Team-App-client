@@ -10,22 +10,25 @@ import { SystemService } from 'app/system.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  user: User = new User();
+  
+  username:string = "";
+  password:string = "";
   message:string = "";
 
-  login(username:string, password:string) : any{
-    this.usersvc.login(username, password).subscribe(
+  login(): any {
+    this.usersvc.login(this.username, this.password).subscribe(
       res => {
-        this.user = res;
-        this.systemsvc.user = this.user;
+        this.systemsvc.user = res;
         console.debug("Login complete.", res);
-        this.router.navigateByUrl("/users/user");
+        //this.router.navigateByUrl(`/my-todos/${this.systemsvc.user.id}`);
+        this.router.navigateByUrl("");
       },
-      err => {console.error("Error during login:",err);
-      this.message = "USER NOT FOUND";
-      this.systemsvc.user = null;
-      return this.message;
-    } 
+      err => {
+        console.error("Error during login:",err);
+        this.message = "USER NOT FOUND";
+        this.systemsvc.user = new User();
+        return this.message;
+      } 
     );
   }
 
