@@ -27,6 +27,12 @@ export class TodoService {
   remove(todo: Todo): Observable<any>{
     return this.http.delete(`${url}/${todo.id}`) as Observable<any>;
   }
+  reject(todo: Todo):Observable <Todo> {
+    return this.http.put(`${url}/${todo.id}/reject`, todo) as Observable<Todo>;
+  }
+  approve(todo: Todo):Observable <Todo> {
+    return this.http.put(`${url}/${todo.id}/approve`, todo) as Observable<Todo>;
+  }
 
   constructor(
     private http: HttpClient
