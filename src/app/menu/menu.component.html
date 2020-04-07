@@ -1,6 +1,23 @@
-<div>
-    <a routerLink="" title="ToDo Home Page">Home</a>
-    <a routerLink="/login">Log In</a>
-    <a *ngIf="systemsvc.user.id != 0" routerLink="/my-todos/{{systemsvc.user.id}}">My ToDos</a>
-    <a routerLink="">Another Link</a>
+<div style="width: 500px; margin: 0 auto; text-align: center;">
+    <span>
+        <a routerLink="" title="ToDo Home Page">Home</a> - 
+    </span>
+    <span *ngIf="systemsvc.user.id != 0">
+        <a routerLink="/my-todos/{{systemsvc.user.id}}">My ToDos</a> - 
+    </span>
+    <span *ngIf="systemsvc.user.id != 0">
+        <a routerLink="/all-todos">All ToDos</a> - 
+    </span>
+    <span>
+        <a routerLink="">TEST LINK</a>
+    </span>
+    <span *ngIf="systemsvc.user.id == 0"> - 
+        <a routerLink="/login">Log In</a>
+    </span>
+    <span *ngIf="systemsvc.user.id != 0" style="font-style: italic; margin-left: 50px;">
+        <a routerLink="/users/edit/{{systemsvc.user.id}}" title="Edit your user details.">{{systemsvc.user.firstName}}</a> : 
+    </span>
+    <span *ngIf="systemsvc.user.id != 0">
+        <a  routerLink=""(click)="systemsvc.logout()">Log Out</a>
+    </span>
 </div>

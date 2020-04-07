@@ -1,21 +1,35 @@
-<div class = "component">
-    <h1>ToDo Login</h1>
-    <table>
-        <tr>
-            <th>Username:</th>
-            <td>
-                <input [(ngModel)]="username" type="text" maxlength="30">
-            </td>
-        </tr>
-        <tr>
-            <th>Password:</th>
-            <td>
-                <input [(ngModel)]="password" type="password" maxlength="64">
-            </td>
-        </tr>
-        <td colspan="2">
-            <button (click)="login()" class="btn btn-primary">Login</button>
-        </td>
-        <span>{{message}}</span>
+<app-menu></app-menu>
+<div class="component">
+    <table class="table text-center" style="width: 400px; margin: 0 auto;">
+        <thead>
+            <th colspan="2">
+                <h3>ToDo Login</h3>
+            </th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Username:</th>
+                <td>
+                    <input [(ngModel)]="username" type="text" size="30" maxlength="30">
+                </td>
+            </tr>
+            <tr>
+                <th>Password:</th>
+                <td>
+                    <input [(ngModel)]="password" type="password" size="30" maxlength="64">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button routerLink="/users/create" class="btn btn-success mr-4">New User</button>
+                    <button (click)="login()" class="btn btn-primary">Login</button>
+                </td>
+            </tr>
+            <tr *ngIf="message">
+                <td colspan="2">
+                    <span style="color: red;">{{message}}</span>
+                </td>
+            </tr>
+        </tbody>
     </table>
 </div>

@@ -12,25 +12,22 @@ export class UserCreateComponent implements OnInit {
 
   user: User = new User();
 
-  save():void{
-    if(this.user.firstName == ''){
-      this.user.firstName = "noname";
-    }
-    if(this.user.lastName == ''){
-      this.user.lastName = "noname";
-    }
-  
+  save(): void {
     this.usersvc.create(this.user).subscribe(
-    res=>{
-      console.debug("User created", res);
-      this.router.navigateByUrl("users/list");
-    },
-    err=>{console.error("Error creating User", err)}
+      res=>{
+        console.debug("User created.", res);
+        this.router.navigateByUrl("/login");
+      },
+      err=>{
+        console.error("Error creating user:", err)
+      }
     );
   }
-  constructor(private usersvc: UserService,
+
+  constructor(
+    private usersvc: UserService,
     private router: Router
-    ) { }
+    ) {}
 
   ngOnInit(): void {
   }

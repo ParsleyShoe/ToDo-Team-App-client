@@ -15,12 +15,13 @@ export class LoginComponent implements OnInit {
   password:string = "";
   message:string = "";
 
-  login() : any {
+  login(): any {
     this.usersvc.login(this.username, this.password).subscribe(
       res => {
         this.systemsvc.user = res;
         console.debug("Login complete.", res);
-        this.router.navigateByUrl(`/my-todos/${this.systemsvc.user.id}`);
+        //this.router.navigateByUrl(`/my-todos/${this.systemsvc.user.id}`);
+        this.router.navigateByUrl("");
       },
       err => {
         console.error("Error during login:",err);
