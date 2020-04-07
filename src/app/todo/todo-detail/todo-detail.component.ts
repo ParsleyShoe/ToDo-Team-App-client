@@ -15,10 +15,10 @@ export class TodoDetailComponent implements OnInit {
   delete(): void{
     this.todosvc.remove(this.todo).subscribe(
       res => {
-        console.debug("To-do deleted.", res);
-        this.router.navigateByUrl(`/todo/list-all`);
+        //console.debug("To-Do deleted.", res);
+        this.router.navigateByUrl("/all-todos"); // maybe should just go back a page?
       },
-      err => {console.error("Cannot delete To-do",err);}
+      err => console.error("Cannot delete To-Do:", err)
     );
   }
 
@@ -31,11 +31,8 @@ export class TodoDetailComponent implements OnInit {
   ngOnInit(): void {
     let id = this.route.snapshot.params.id
     this.todosvc.get(id).subscribe(
-      res =>{
-        this.todo = res;
-        console.debug("To-do:", res);
-      },
-      err => {console.error("Error on To-do:", err);}
+      res => this.todo = res,
+      err => console.error("Error getting To-Do:", err)
     );
   }
 
