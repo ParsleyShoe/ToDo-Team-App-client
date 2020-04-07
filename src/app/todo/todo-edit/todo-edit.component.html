@@ -4,45 +4,51 @@
 <div class = "component">
     <table class = "table table-sm">
         <tr>
-            <th>Id:</th>
-            <td><input [(ngModel)] = "todo.id" type = "text" size="10" disabled></td>
-        </tr>
-        <tr>
             <th>Description:</th>
-            <td><input [(ngModel)] = "todo.description" type = "text" size="140"></td>
+            <td>
+                <input [(ngModel)]="todo.description" type="text" size="140">
+            </td>
         </tr>
         <tr>
             <th>Category:</th>
-            <td><input [(ngModel)] = "todo.category" type = "text" size="25"></td>
+            <td>
+                <input [(ngModel)]="todo.category" type="text" size="25">
+            </td>
         </tr>
         <tr>
-            <th>Due Date:</th>
-            <td><input [(ngModel)] = "todo.dueDate" type = "text" size="35"></td>
+            <th>Due date:</th>
+            <td>
+                <input [(ngModel)]="todo.dueDate" type="text" size="10">
+            </td>
         </tr>
         <tr>
             <th>Status:</th>
-            <td><input [(ngModel)] = "todo.status" value = "{{+todo.status}}" disabled></td>
+            <td>
+                <input [(ngModel)]="todo.status" disabled>
+            </td>
         </tr>
         <tr>
-            <th>Created By:</th>
+            <th>Created by:</th>
             <td>
-                <input [(ngModel)] = "todo.userId" value = "{{+todo.userId}}" disabled>
+                <input [(ngModel)]="todo.user.firstName" disabled>
+            </td>
         </tr>
         <tr>
-            <th>Assigned To:</th>
+            <th>Assigned to:</th>
             <td>
-                <input [(ngModel)] = "todo.assigneduserId" value = "{{+todo.assigneduserId}}" disabled>
+                <input [(ngModel)]="todo.assignedUser.firstName" disabled>
+            </td>
         </tr>
         <tr>
-            <th>Complete:</th>
+            <th>Complete?</th>
             <td>
-                <input [(ngModel)] = "todo.isDone"  type="checkbox">
+                <input [(ngModel)]="todo.isDone" type="checkbox">
             </td>
         </tr>
         <td colspan="2">
-            <button (click) = "save()" class = "btn btn-primary">Save</button> | 
-            <button (click) = "approve()" class = "btn btn-success">Approve</button> | 
-            <button (click) = "reject()" class = "btn btn-danger">Reject</button>
+            <button (click)="save()" class="btn btn-primary">Save</button>
+            <!-- <button (click)="approve()" class="btn btn-success mr-3">Approve</button>
+            <button (click)="reject()" class="btn btn-danger">Reject</button> -->
         </td>
     </table>
 </div>

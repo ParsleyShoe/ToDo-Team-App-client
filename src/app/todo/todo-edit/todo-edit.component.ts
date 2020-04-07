@@ -55,21 +55,15 @@ export class TodoEditComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.usersvc.list().subscribe(
-      res =>{
-        this.users = res;
-        console.debug("User:", res);
-      },
-      err => {console.error("Error reading User:", err);}
-    );
-    let id = this.route.snapshot.params.id
-      this.todosvc.get(id).subscribe(
-        res =>{
-          this.todo = res;
-          console.debug("To-do:", res);
-        },
-        err => {console.error("Error on To-do:", err);}
+    let id = this.route.snapshot.params.id;
+    this.todosvc.get(id).subscribe(
+      res => this.todo = res,
+      err => console.error("Error getting To-Do:", err)
       );
+    this.usersvc.list().subscribe(
+      res => this.users = res,
+      err => console.error("Error getting users:", err)
+    );
   }
 
 }
