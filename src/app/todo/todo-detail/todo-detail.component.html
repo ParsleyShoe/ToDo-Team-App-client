@@ -1,1 +1,46 @@
-<p>todo-detail works!</p>
+<app-menu></app-menu>
+<label>To-do {{todo.id}} Details</label> | 
+<a routerLink = "/todo/create">New To-do</a>
+<div class = "component">
+    <table class = "table table-sm">
+        <tr>
+            <th>Id:</th>
+            <td><input [(ngModel)] = "todo.id" type = "text" size="10" disabled></td>
+        </tr>
+        <tr>
+            <th>Description:</th>
+            <td><input [(ngModel)] = "todo.description" type = "text" size="140" disabled></td>
+        </tr>
+        <tr>
+            <th>Category:</th>
+            <td><input [(ngModel)] = "todo.category" type = "text" size="25" disabled></td>
+        </tr>
+        <tr>
+            <th>Due Date:</th>
+            <td><input [(ngModel)] = "todo.dueDate" type = "text" size="35" disabled></td>
+        </tr>
+        <tr>
+            <th>Status:</th>
+            <td><input [(ngModel)] = "todo.status" value = "{{+todo.status}}" disabled></td>
+        </tr>
+        <tr>
+            <th>Created By:</th>
+            <td>
+                <input [(ngModel)] = "todo.userId" value = "{{+todo.userId}}" disabled>
+        </tr>
+        <tr>
+            <th>Assigned To:</th>
+            <td>
+                <input [(ngModel)] = "todo.assigneduserId" value = "{{+todo.assigneduserId}}" disabled>
+        </tr>
+        <tr>
+            <th>Complete:</th>
+            <td>
+                <input [(ngModel)] = "todo.isDone"  type="checkbox" disabled>
+            </td>
+        </tr>
+        <td colspan="2">
+            <button (click) = "delete()" class = "btn btn-danger">Delete</button>
+        </td>
+    </table>
+</div>
