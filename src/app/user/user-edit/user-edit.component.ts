@@ -24,6 +24,18 @@ export class UserEditComponent implements OnInit {
       }
     );
   }
+  delete():void{
+    this.usersvc.remove(this.user).subscribe(
+      res=>
+      {
+        console.debug("User delete success", res);
+        this.router.navigateByUrl("/users/list");
+      },
+      err=>{
+        console.error("error deleting user:", err);
+      }
+    );
+  }
 
   constructor(
     private usersvc: UserService,
