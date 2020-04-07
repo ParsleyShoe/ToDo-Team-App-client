@@ -1,1 +1,54 @@
-<p>todo-create works!</p>
+<app-menu> </app-menu>
+<h5>Create new ToDo Item</h5>
+<div> 
+    <!--Table to take in properties of new ToDo Item -->
+    <table>
+        <tr>
+            <th> ID: </th>
+            <td>
+                <!-- Auto Assigned-->
+                <input [(ngModel)]="todo.id" type="number" disabled>
+            </td>
+        </tr>
+        <tr>
+            <th> Description: </th>
+            <td>
+                <input [(ngModel)]="todo.description" type="text">
+            </td>
+        </tr>
+        <!--Skipped isDone. New Todos will always be not done-->
+        <tr>
+            <th> Category: </th>
+            <td>
+                <input [(ngModel)]="todo.category" type="text">
+            </td>
+        </tr>
+        <!-- UserId will automatically be assigned to the user logged into the system-->
+        <tr>
+            <th> Assigned To: </th>
+            <td>
+                <select [(ngModel)]="todo.assignedUserId" >
+                 <option *ngFor="let a of users" value="{{+a.id}}">{{a.name}}</option>   
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th> Due Date: </th>
+            <td>
+                <input [(ngModel)]="todo.dueDate" type="date">
+            </td>
+        </tr>
+        <tr>
+            <th> Status: </th>
+            <td>
+                <input [(ngModel)]="todo.status" type="text">
+            </td>
+        </tr>
+        <tr>
+            <th> ID: </th>
+            <td>
+                <input [(ngModel)]="todo.id" type="number disabled">
+            </td>
+        </tr>
+    </table>
+</div>
