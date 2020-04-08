@@ -1,26 +1,32 @@
 <app-menu></app-menu>
-<div>
+<div style="text-align: center;">
     <h4>All ToDo Items</h4>
-    <table>
-        <tr>
-           <th>ID:</th> 
-           <th>Description:</th> 
-           <th>Done:</th> 
-           <th>Category:</th> 
-           <th>Created By:</th> 
-           <th>Assigned To:</th> 
-           <th>Due Date:</th> 
-           <th>Status:</th> 
-        </tr>
-        <tr *ngFor="let t of todos | sort: 'dueDate'">
-            <th>{{t.id}}</th>
-            <th>{{t.description}}</th>
-            <th>{{t.isDone ? "Yes" : "No" }}</th>
-            <th>{{t.category}}</th>
-            <th>{{t.user.name}}</th>
-            <th>{{t.assigned.name}}</th> <!--Need a property to store whole user in class-->
-            <th>{{t.duedate}}</th>
-            <th>{{t.status}}</th>
-        </tr>
+    <a routerLink="/todo/create" class="btn btn-primary">+ Add New ToDo</a>
+    <table class="table text-left" style="width: 650px; margin: 0 auto;">
+        <thead>
+            <th>Complete?</th>
+           <th>Description:</th>
+           <th>Category:</th>
+           <!-- <th>Created by:</th> -->
+           <th>Assigned to:</th>
+           <th colspan="2">Due Date:</th>
+           <!-- <th>Status:</th> -->
+        </thead>
+        <tbody>
+            <tr *ngFor="let t of todos | sort: 'dueDate'">
+                <td>{{t.isDone ? "Yes" : "No" }}</td>
+                <td>{{t.description}}</td>
+                <td>{{t.category}}</td>
+                <!-- <td>{{t.user.firstName}}</td> -->
+                <!-- <td>{{t.user.firstName}} {{t.user.lastName}}</td> -->
+                <td>{{t.assignedUser.firstName}}</td>
+                <!-- <td>{{t.assignedUser.firstName}} {{t.assignedUser.lastName}}</td> -->
+                <td>{{t.dueDate | date}}</td>
+                <!-- <td>{{t.status}}</td> -->
+                <td>
+                    <a routerLink="/todo/detail/{{t.id}}">details</a>
+                </td>
+            </tr>
+        </tbody>
     </table>
 </div>
