@@ -18,13 +18,10 @@ export class TodoCreateComponent implements OnInit {
 
   save():void {
     this.todo.userId = Number(this.systemsvc.user.id);
+    this.todo.assignedUserId = Number(this.todo.assignedUserId);
     this.todosvc.create(this.todo).subscribe(
-      res => {
-        this.router.navigateByUrl("/todo/listall"); 
-      },
-      err => {
-        console.error("Error creating ToDo item", err);
-      }
+      () => this.router.navigateByUrl("/all-todos"),
+      err => console.error("Error creating ToDo item", err)
     )
   }
  
@@ -36,15 +33,11 @@ export class TodoCreateComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.todo.assignedUserId = this.systemsvc.user.id;
     this.usersvc.list().subscribe(
-      res => {
-        this.users = res;
-      },
-      err => {
-        console.error("Error getting users", err);
-      }
+      res => this.users = res,
+      err => console.error("Error getting users", err)
     )
-
   }
 
 }
