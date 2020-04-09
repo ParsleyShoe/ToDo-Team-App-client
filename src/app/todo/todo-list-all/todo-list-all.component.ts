@@ -12,18 +12,13 @@ export class TodoListAllComponent implements OnInit {
   todos: Todo[] = [];
 
   constructor(
-    private todo: TodoService
+    private todosvc: TodoService
   ) { }
 
   ngOnInit(): void {
-    this.todo.list().subscribe(
-      res => {
-        this.todos = res;
-        console.debug("ToDo List ", res);
-      },
-      err =>{
-        console.error("Error getting ToDos ", err);
-      }
+    this.todosvc.list().subscribe(
+      res => this.todos = res,
+      err => console.error("Error getting ToDos ", err)
     );
   }
 

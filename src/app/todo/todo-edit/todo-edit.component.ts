@@ -21,7 +21,7 @@ export class TodoEditComponent implements OnInit {
     this.todosvc.change(this.todo).subscribe(
       res => {
         console.debug("To-do:", res);
-        this.router.navigateByUrl(`/todo/list-all`);
+        this.router.navigateByUrl(`/all-todos`);
       },
       err => {console.error("Error editing To-do:",err);}
     );
@@ -31,7 +31,7 @@ export class TodoEditComponent implements OnInit {
     this.todosvc.change(this.todo).subscribe(
       res => {
         console.debug("To-do Approved.", res);
-        this.router.navigateByUrl(`/todo/list-all`);
+        this.router.navigateByUrl(`/all-todos`);
       },
       err => {console.error("Error approving To-do:",err);}
     );
@@ -41,7 +41,7 @@ export class TodoEditComponent implements OnInit {
     this.todosvc.change(this.todo).subscribe(
       res => {
         console.debug("To-do Rejected.", res);
-        this.router.navigateByUrl(`/todo/list-all`);
+        this.router.navigateByUrl(`/all-todos`);
       },
       err => {console.error("Error rejecting To-do:",err);}
     );

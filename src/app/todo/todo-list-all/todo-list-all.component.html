@@ -1,32 +1,38 @@
 <app-menu></app-menu>
 <div style="text-align: center;">
+
     <h4>All ToDo Items</h4>
-    <a routerLink="/todo/create" class="btn btn-primary">+ Add New ToDo</a>
-    <table class="table text-left" style="width: 650px; margin: 0 auto;">
-        <thead>
-            <th>Complete?</th>
-           <th>Description:</th>
-           <th>Category:</th>
-           <!-- <th>Created by:</th> -->
-           <th>Assigned to:</th>
-           <th colspan="2">Due Date:</th>
-           <!-- <th>Status:</th> -->
-        </thead>
-        <tbody>
-            <tr *ngFor="let t of todos | sort: 'dueDate'">
-                <td>{{t.isDone ? "Yes" : "No" }}</td>
-                <td>{{t.description}}</td>
-                <td>{{t.category}}</td>
-                <!-- <td>{{t.user.firstName}}</td> -->
-                <!-- <td>{{t.user.firstName}} {{t.user.lastName}}</td> -->
-                <td>{{t.assignedUser.firstName}}</td>
-                <!-- <td>{{t.assignedUser.firstName}} {{t.assignedUser.lastName}}</td> -->
-                <td>{{t.dueDate | date}}</td>
-                <!-- <td>{{t.status}}</td> -->
-                <td>
-                    <a routerLink="/todo/detail/{{t.id}}">details</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <a routerLink="/todo/create" class="btn btn-primary mr-3">+ Add New ToDo</a>
+    <span>
+        View: 
+        <select>
+            <option value="">All</option>
+            <option value="">Complete</option>
+            <option value="">Incomplete</option>
+        </select>
+    </span>
+    <div class="mt-3 d-flex flex-row justify-content-center" style="width: 80vw; margin: 0 auto;">
+        <div class="container" *ngFor="let t of todos" routerLink="/todo/detail/{{t.id}}"
+            style="background-color: cornflowerblue; margin: 15px; width: 235px; height: 220px;">
+            <div class="row no-gutters" style="padding: 6px 0;">
+                <div class="col-sm">
+                    {{t.category}}
+                </div>
+                <div class="col-sm">
+                    {{t.isDone ? "Complete" : "Incomplete" }}
+                </div>
+            </div>
+            <div class="row no-gutters" style="height: 145px; padding: 6px 0;">
+                <div class="col-sm">
+                    {{t.description}}
+                </div>
+            </div>
+            <div class="row no-gutters" style="padding: 6px 0;">
+                <div class="col-sm">
+                    Due by: {{t.dueDate | date}}
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>

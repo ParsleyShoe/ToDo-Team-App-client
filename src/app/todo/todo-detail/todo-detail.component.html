@@ -27,13 +27,13 @@
         </tr>
         <tr>
             <th>Created By:</th>
-            <td>
+            <td *ngIf="todo.user">
                 <input [(ngModel)]="todo.user.firstName" disabled>
             </td>
         </tr>
         <tr>
             <th>Assigned to:</th>
-            <td>
+            <td *ngIf="todo.assignedUser">
                 <input [(ngModel)]="todo.assignedUser.firstName" disabled>
             </td>
         </tr>
