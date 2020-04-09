@@ -1,1 +1,27 @@
-<p>todo-list-user works!</p>
+<app-menu></app-menu>
+<div style="text-align: center;">
+    <h4>{todo.user.username} Todo List</h4>
+    <a routerLink="/todo/create" class="btn btn-primary">+ Add New ToDo</a>
+    <table class="table text-left" style="width: 650px; margin: 0 auto;">
+        <thead>
+            <th>Complete?</th>
+           <th>Description:</th>
+           <th>Category:</th>
+            <th>Created by:</th>
+           <th colspan="2">Due Date:</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let t of todos | sort: 'dueDate'">
+                <td>{{t.isDone ? "Yes" : "No" }}</td>
+                <td>{{t.description}}</td>
+                <td>{{t.category}}</td>
+                <td>{{t.userId.firstName}}</td>
+                <td>{{t.dueDate | date}}</td>
+                <td>
+                    <a routerLink="/todo/detail/{{t.id}}">details</a>
+                    <a routerLink="/todo/edit/{{t.id}}">edit</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
