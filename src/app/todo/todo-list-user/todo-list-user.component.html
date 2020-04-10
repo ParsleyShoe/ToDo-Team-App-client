@@ -12,7 +12,7 @@
         </thead>
         <tbody>
             <tr *ngFor="let t of todos | sort: 'dueDate'">
-                <td>{{t.isDone ? "Yes" : "No" }}</td>
+                <td>{{t.isDone ? "Yes" : "No"}}</td>
                 <td>{{t.description}}</td>
                 <td>{{t.category}}</td>
                 <td>{{t.userId.firstName}}</td>
