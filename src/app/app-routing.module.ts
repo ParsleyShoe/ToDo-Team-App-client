@@ -31,7 +31,7 @@ const routes: Routes = [
   { path: "todo/detail/:id", component: TodoDetailComponent },
   { path: "todo/edit/:id", component: TodoEditComponent },
   { path: "all-todos", component: TodoListAllComponent },
-  { path: "my-todos/:userid", component: TodoListUserComponent },
+  { path: "my-todos/:id", component: TodoListUserComponent },
 
   { path: "**", component: HomeComponent }
 ];
