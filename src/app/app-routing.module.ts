@@ -28,10 +28,6 @@ const routes: Routes = [
 
   { path: "todo/assign/:id", component: TodoAssignComponent },
   { path: "todo/create", component: TodoCreateComponent },
-
-  { path: "todo/detail", component: TodoDetailComponent },
-  { path: "todo/edit", component: TodoEditComponent },
-  { path: "todo/listall", component: TodoListAllComponent },
   { path: "todo/detail/:id", component: TodoDetailComponent },
   { path: "todo/edit/:id", component: TodoEditComponent },
   { path: "all-todos", component: TodoListAllComponent },
